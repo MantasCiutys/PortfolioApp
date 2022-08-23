@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, {useState} from 'react';
+import PortfolioTable from './components/PortfolioTable/PortfolioTable';
+import PortfolioTitle from './components/PortfolioTitle/PortfolioTitle';
+import NetWorth from './components/NetWorth/NetWorth';
 
 function App() {
+
+  const [netWorth, setNetWorth] = useState(22000);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PortfolioTitle></PortfolioTitle>
+      <PortfolioTable setNetWorth={setNetWorth}></PortfolioTable>
+      <NetWorth totalNetWorth={netWorth}></NetWorth>
     </div>
   );
 }
